@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css">
+  <!-- <link rel="stylesheet" href="payment.css"/> -->
+</head>
+<body>
+  <div class="checkout-container">
+    <form id="checkout-form">
+    <h1>Confirm Your Order</h1>
+    <section class="payment-category">
+    <h3>Choose a Payment Method</h3>
+    <div class="payment-options">
+      <div class="payment-item">
+        <img src="images/b44.jpg" alt="Visa">
+        <h3>Visa</h3>
+        <input type="radio" name="payment"  value="credit-card" checked/>
+      </div>
+      <div class="payment-item">
+        <img src="images/b42.jpg" alt="PayPal">
+        <h3>PayPal</h3>
+        <input type="radio" name="payment" value="paypal" />
+      </div>
+      <div class="payment-item">
+        <img src="images/b43.jpg" alt="Cash">
+        <h3>Cash</h3>
+        <input type="radio" name="payment" value="apple-pay" />
+      </div>
+    </div>
+  </section>
+  <div class="form-group">
+    <label for="notes">Any notes or additions?</label>
+    <textarea id="notes" placeholder="E.g., extra sugar, no cream..."></textarea>
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit" class="confirm-btn" >Confirm Order</button>
+    <button type="button" class="btn edit" onclick="window.location.href='menu.html'">Edit Order</button>
+    <button type="button" class="btn cancel" onclick="cancelOrder()">Cancel</button>
+  </div>
+</form>
+
+
+    <div class="thank-you hidden" id="thank-you-message">
+      <h2>Thank You! 🎂</h2>
+      <p>Your order has been placed. Have a nice day!</p>
+      <!-- <img src="https://cdn.pixabay.com/photo/2015/03/26/09/54/cake-690040_960_720.jpg" alt="Cute Cake" /> -->
+      <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('checkout-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('checkout-form').classList.add('hidden');
+      document.getElementById('thank-you-message').classList.remove('hidden');
+    });
+
+    function editOrder() {
+      window.location.href = 'index.html#menu';
+    }
+
+    function cancelOrder() {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>
